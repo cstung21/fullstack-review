@@ -53,8 +53,8 @@ let save = (repoList, callback) => {
 let get = (callback) => {
   Repo.
   find().
-  limit(25).
   sort({forks: -1}).
+  limit(25).
   select({
     'owner.login': 1, 
     name: 1, 
