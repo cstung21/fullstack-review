@@ -10,7 +10,29 @@ class App extends React.Component {
     this.state = { 
       repos: []
     }
+  }
 
+  componentDidMount() {
+    this.fetch();
+
+  }
+
+  fetch() {
+    console.log('Fetching repos from DB...');
+    $.ajax({
+      url: 'http://localhost:1128/repos',
+      method: 'GET',
+      dataType: 'json',
+      error: function() {
+        console.log('ERROR occurred with GET request from client!');
+      },
+      success: (repoList) => {
+        console.log('SUCCESS: GET request from client was successful!\n\n', repoList);
+        this.setState({
+          repos: repoList
+        });
+      }
+    });
   }
 
   search (term) {
