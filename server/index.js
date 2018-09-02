@@ -47,7 +47,7 @@ app.get('/repos', function (req, res) {
     if (err) {
       console.log('ERROR retrieving data from the database', err);
     } else {
-      console.log('Successfully retrieved data from the database');
+      console.log('Successfully retrieved data from the database', data);
       res.status(200).send(data);
     }
   });

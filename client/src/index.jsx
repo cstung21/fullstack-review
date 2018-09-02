@@ -45,8 +45,9 @@ class App extends React.Component {
       error: function() {
         console.log('ERROR occurred with POST request from client!');
       },
-      success: function() {
+      success: () => {
         console.log(`SUCCESS: POST request from client for search term ${term} was successful!`);
+        this.fetch();
       }
     });
   }
